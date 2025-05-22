@@ -4,18 +4,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class ConexionBBDD {
-    private static Connection conexion;
+	private static final String URL = "jdbc:oracle:thin:@localhost:1521:xepdb1";
+    private static final String USUARIO = "alumno";
+    private static final String CONTRASENA = "alumno";
 
     public static Connection conectar() {
-        if (conexion == null) {
-            try {
-                Class.forName("oracle.jdbc.driver.OracleDriver");
-                conexion = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@localhost:1521:xepdb1", "alumno", "alumno");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            return DriverManager.getConnection(URL, USUARIO, CONTRASENA);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
-        return conexion;
     }
 }
