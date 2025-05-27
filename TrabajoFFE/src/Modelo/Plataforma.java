@@ -1,4 +1,3 @@
-// src/Modelo/Plataforma.java
 package Modelo;
 
 public class Plataforma {
@@ -6,24 +5,24 @@ public class Plataforma {
     private String nombre;
     private String paisOrigen;
 
-    // Constructor vacío (necesario para algunos frameworks o para inicializar con valores por defecto)
+    // Constructor vacío (necesario para algunos frameworks)
     public Plataforma() {
     }
 
-    // Constructor con todos los campos (útil para crear objetos completos)
+    // Constructor con todos los campos
     public Plataforma(int id, String nombre, String paisOrigen) {
         this.id = id;
         this.nombre = nombre;
         this.paisOrigen = paisOrigen;
     }
 
-    // Constructor sin ID (útil para nuevas plataformas que aún no tienen ID de la BD)
+    // Constructor sin ID
     public Plataforma(String nombre, String paisOrigen) {
         this.nombre = nombre;
         this.paisOrigen = paisOrigen;
     }
 
-    // Getters y Setters para cada atributo (encapsulamiento)
+    // Getters y Setters para cada atributo
     public int getId() {
         return id;
     }
