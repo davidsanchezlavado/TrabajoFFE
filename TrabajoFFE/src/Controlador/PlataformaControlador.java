@@ -1,4 +1,3 @@
-// src/Controlador/PlataformaControlador.java
 package Controlador;
 
 import BaseDeDatos.PlataformaDAO;
@@ -13,6 +12,7 @@ public class PlataformaControlador {
     }
 
     public boolean agregarPlataforma(String nombre, String paisOrigen) {
+        //Ponemos Restricciones al agregar una plataforma
         if (nombre == null || nombre.trim().isEmpty()) {
             System.err.println("El nombre de la plataforma no puede estar vacío.");
             return false;
@@ -22,6 +22,7 @@ public class PlataformaControlador {
     }
 
     public boolean actualizarPlataforma(int id, String nombre, String paisOrigen) {
+        //Ponemos Restricciones al agregar una plataforma
         if (nombre == null || nombre.trim().isEmpty()) {
             System.err.println("El nombre de la plataforma no puede estar vacío.");
             return false;
