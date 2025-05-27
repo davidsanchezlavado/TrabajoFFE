@@ -1,4 +1,3 @@
-// src/Controlador/SerieControlador.java
 package Controlador;
 
 import BaseDeDatos.SerieDAO;
@@ -14,6 +13,7 @@ public class SerieControlador {
     }
 
     public boolean agregarSerie(String titulo, String genero, int numTemporadas, int anoLanzamiento, int idPlataforma) {
+        //Ponemos restricciones al agregarSeries
         if (titulo == null || titulo.trim().isEmpty()) {
             System.err.println("El título de la serie no puede estar vacío.");
             return false;
@@ -32,10 +32,14 @@ public class SerieControlador {
                                      numTemporadas,
                                      anoLanzamiento,
                                      idPlataforma);
-        return serieDAO.insertarSerie(nuevaSerie);
+
+        return serieDAO.insertarSerie(nuevaSerie); //Usamos el Metodo en la clase serieDAO para crear las nuevas series que queramos crear
     }
 
     public boolean actualizarSerie(int id, String titulo, String genero, int numTemporadas, int anoLanzamiento, int idPlataforma) {
+
+        //Ponemos restricciones al actualizarSeries
+
         if (titulo == null || titulo.trim().isEmpty()) {
             System.err.println("El título de la serie no puede estar vacío.");
             return false;
@@ -55,7 +59,8 @@ public class SerieControlador {
                                            numTemporadas,
                                            anoLanzamiento,
                                            idPlataforma);
-        return serieDAO.actualizarSerie(serieActualizada);
+
+        return serieDAO.actualizarSerie(serieActualizada); //Usamos el Metodo en la clase serieDAO para crear las nuevas series que queramos crear
     }
 
     public boolean eliminarSerie(int id) {
