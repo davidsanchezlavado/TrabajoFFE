@@ -94,7 +94,6 @@ public class PlataformaDAO {
     }
 
     public boolean eliminarPlataforma(int id) {
-        // Al usar ON DELETE SET NULL en la FK, las series asociadas a esta plataforma tendrán su ID_PLATAFORMA a NULL
         String sql = "DELETE FROM PLATAFORMA WHERE ID = ?";
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -163,7 +162,7 @@ public class PlataformaDAO {
 
     public List<Plataforma> obtenerTodasLasPlataformas() {
         List<Plataforma> plataformas = new ArrayList<>();
-        String sql = "SELECT ID, NOMBRE, PAIS_ORIGEN FROM PLATAFORMA ORDER BY NOMBRE"; // <--- Esta consulta
+        String sql = "SELECT ID, NOMBRE, PAIS_ORIGEN FROM PLATAFORMA ORDER BY NOMBRE";
         Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
@@ -180,7 +179,7 @@ public class PlataformaDAO {
                 plataformas.add(plataforma);
             }
         } catch (SQLException e) {
-            System.err.println("Error al obtener todas las plataformas: " + e.getMessage()); // <-- IMPORTANTE: ¿Esto aparece?
+            System.err.println("Error al obtener todas las plataformas: " + e.getMessage());
         } finally {
             try {
                 if (rs != null) rs.close();

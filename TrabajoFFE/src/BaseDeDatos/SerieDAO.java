@@ -1,7 +1,7 @@
 package BaseDeDatos;
 
 import Modelo.Serie;
-import Modelo.Plataforma; // Necesario para cargar el objeto Plataforma dentro de Serie
+import Modelo.Plataforma;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +12,7 @@ import java.util.List;
 
 public class SerieDAO {
 
-    private PlataformaDAO plataformaDAO; // Para obtener los objetos Plataforma
+    private PlataformaDAO plataformaDAO;
 
     public SerieDAO() {
         this.plataformaDAO = new PlataformaDAO();
@@ -32,11 +32,10 @@ public class SerieDAO {
             pstmt.setString(2, serie.getGenero());
             pstmt.setInt(3, serie.getNumTemporadas());
             pstmt.setInt(4, serie.getAnoLanzamiento());
-            // Manejar caso donde ID_PLATAFORMA podría ser 0 o no válido
             if (serie.getIdPlataforma() > 0) {
                 pstmt.setInt(5, serie.getIdPlataforma());
             } else {
-                pstmt.setNull(5, java.sql.Types.NUMERIC); // O establecer a NULL si no hay plataforma
+                pstmt.setNull(5, java.sql.Types.NUMERIC);
             }
 
             int filasAfectadas = pstmt.executeUpdate();
@@ -233,13 +232,6 @@ public class SerieDAO {
         return series;
     }
 
-    /**
-     * Busca series por título (parcial) o género (exacto).
-     * @param tituloFragmento Título o parte del título a buscar.
-     * @param genero Género exacto a buscar. Puede ser null o vacío para no filtrar por género.
-     * @param idPlataforma ID de la plataforma a buscar. 0 o negativo para no filtrar por plataforma.
-     * @return Lista de series que coinciden con los filtros.
-     */
     public List<Serie> buscarSeries(String tituloFragmento, String genero, int idPlataforma) {
         List<Serie> series = new ArrayList<>();
         StringBuilder sqlBuilder = new StringBuilder("SELECT ID, TITULO, GENERO, NUM_TEMPORADAS, ANO_LANZAMIENTO, ID_PLATAFORMA FROM SERIE WHERE 1=1");
