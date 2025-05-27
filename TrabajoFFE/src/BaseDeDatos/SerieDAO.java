@@ -19,7 +19,7 @@ public class SerieDAO {
     }
 
     /**
-     * El ID se generará automáticamente por la secuencia.
+     * El ID se generará automáticamente por cada serie que crees, por ejemplo: 1, 2, 3...
      */
     public boolean insertarSerie(Serie serie) {
         String sql = "INSERT INTO SERIE (TITULO, GENERO, NUM_TEMPORADAS, ANO_LANZAMIENTO, ID_PLATAFORMA) VALUES (?, ?, ?, ?, ?)";
@@ -232,6 +232,7 @@ public class SerieDAO {
         return series;
     }
 
+    //Podemos buscar por el campo que queramos al usar un iterator
     public List<Serie> buscarSeries(String tituloFragmento, String genero, int idPlataforma) {
         List<Serie> series = new ArrayList<>();
         StringBuilder sqlBuilder = new StringBuilder("SELECT ID, TITULO, GENERO, NUM_TEMPORADAS, ANO_LANZAMIENTO, ID_PLATAFORMA FROM SERIE WHERE 1=1");
