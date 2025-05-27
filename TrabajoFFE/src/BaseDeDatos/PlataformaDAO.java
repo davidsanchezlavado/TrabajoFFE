@@ -1,4 +1,3 @@
-// src/BaseDeDatos/PlataformaDAO.java
 package BaseDeDatos;
 
 import Modelo.Plataforma;
@@ -32,7 +31,7 @@ public class PlataformaDAO {
                 conn.commit(); // Confirmar la transacción
                 return true;
             } else {
-                conn.rollback(); // Deshacer si no se insertó ninguna fila
+                conn.rollback(); // Rollback para deshacer si no se insertó ninguna fila
                 return false;
             }
         } catch (SQLException e) {
@@ -51,7 +50,6 @@ public class PlataformaDAO {
             } catch (SQLException e) {
                 System.err.println("Error al cerrar PreparedStatement: " + e.getMessage());
             }
-            // No cerramos la conexión aquí, se cierra en Main o al finalizar la app
         }
     }
 
