@@ -1,4 +1,3 @@
-// src/Main/Main.java
 package Main;
 
 import BaseDeDatos.ConexionBBDD;
