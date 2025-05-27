@@ -1,4 +1,3 @@
-// src/Modelo/Serie.java
 package Modelo;
 
 public class Serie {
@@ -10,11 +9,9 @@ public class Serie {
     private int idPlataforma; // Clave foránea para la plataforma
     private Plataforma plataforma; // Objeto Plataforma para tener la información completa
 
-    // Constructor vacío
     public Serie() {
     }
 
-    // Constructor completo
     public Serie(int id, String titulo, String genero, int numTemporadas, int anoLanzamiento, int idPlataforma) {
         this.id = id;
         this.titulo = titulo;
@@ -24,7 +21,7 @@ public class Serie {
         this.idPlataforma = idPlataforma;
     }
 
-    // Constructor para nuevas series (sin ID)
+    // Constructor para nuevas series (sin ID, ya que lo generará automáticamente)
     public Serie(String titulo, String genero, int numTemporadas, int anoLanzamiento, int idPlataforma) {
         this.titulo = titulo;
         this.genero = genero;
