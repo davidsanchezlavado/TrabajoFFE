@@ -1,4 +1,3 @@
-// src/Vista/MainFrame.java
 package Vista;
 
 import Controlador.PlataformaControlador;
