@@ -11,8 +11,8 @@ public class PlataformaControlador {
         this.plataformaDAO = new PlataformaDAO();
     }
 
+    // Método original (para la GUI)
     public boolean agregarPlataforma(String nombre, String paisOrigen) {
-        //Ponemos Restricciones al agregar una plataforma
         if (nombre == null || nombre.trim().isEmpty()) {
             System.err.println("El nombre de la plataforma no puede estar vacío.");
             return false;
@@ -21,8 +21,16 @@ public class PlataformaControlador {
         return plataformaDAO.insertarPlataforma(nuevaPlataforma);
     }
 
+    // NUEVO MÉTODO AGREGAR PLATAFORMA (para los tests y una API más limpia)
+    public boolean agregarPlataforma(Plataforma plataforma) {
+        if (plataforma == null || plataforma.getNombre() == null || plataforma.getNombre().trim().isEmpty()) {
+            System.err.println("La plataforma o su nombre no pueden ser nulos o vacíos.");
+            return false;
+        }
+        return plataformaDAO.insertarPlataforma(plataforma);
+    }
+
     public boolean actualizarPlataforma(int id, String nombre, String paisOrigen) {
-        //Ponemos Restricciones al agregar una plataforma
         if (nombre == null || nombre.trim().isEmpty()) {
             System.err.println("El nombre de la plataforma no puede estar vacío.");
             return false;
@@ -31,6 +39,7 @@ public class PlataformaControlador {
         return plataformaDAO.actualizarPlataforma(plataformaActualizada);
     }
 
+    // ... el resto de tus métodos ...
     public boolean eliminarPlataforma(int id) {
         return plataformaDAO.eliminarPlataforma(id);
     }
