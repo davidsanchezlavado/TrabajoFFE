@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class MainFrame extends JFrame {
+public final class MainFrame extends JFrame {
 
     private PlataformaControlador plataformaControlador;
     private SerieControlador serieControlador;
